@@ -18,14 +18,17 @@
             background-color: #fafafa;
         }
 
-        /* HEADER */
+        /* HEADER - Responsive Background Image */
         header {
-            background: url('2.jpg') center center no-repeat;
-            background-size: cover;
             position: relative;
-            color: white;
+            width: 100%;
+            min-height: 50vh;
+            background: url('2.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 120px 20px;
+            color: white;
         }
 
         header::after {
@@ -42,21 +45,23 @@
         }
 
         header h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 10px;
             font-weight: bold;
         }
 
         header p {
-            font-size: 1.4rem;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
         }
 
-        /* NAV - Stylish Glass Effect */
+        /* NAV - Modern Glass Effect */
         nav {
             background: rgba(27, 67, 50, 0.85);
             backdrop-filter: blur(8px);
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
             padding: 14px 25px;
             position: sticky;
             top: 0;
@@ -67,11 +72,11 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 18px;
             font-weight: bold;
             font-size: 1rem;
             position: relative;
             transition: color 0.3s ease;
+            padding: 5px;
         }
 
         nav a::after {
@@ -89,16 +94,13 @@
             color: #ffb703;
         }
 
-        nav a:hover::after {
+        nav a:hover::after,
+        nav a.active::after {
             width: 100%;
         }
 
         nav a.active {
             color: #ffb703;
-        }
-
-        nav a.active::after {
-            width: 100%;
         }
 
         /* SECTIONS */
@@ -121,6 +123,10 @@
             flex-wrap: wrap;
             align-items: center;
             gap: 25px;
+            justify-content: center;
+            /* ✅ centers content horizontally */
+            text-align: center;
+            /* ✅ centers text */
         }
 
         .about img {
@@ -128,7 +134,12 @@
             max-width: 480px;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: block;
+            /* ✅ ensures it's treated as a block element */
+            margin: 0 auto;
+            /* ✅ centers the image */
         }
+
 
         .about p {
             font-size: 1.1rem;
@@ -157,11 +168,6 @@
 
         .menu-item h3 {
             color: #1b4332;
-            margin-bottom: 10px;
-        }
-
-        .menu-item p {
-            font-size: 0.95rem;
             margin-bottom: 10px;
         }
 
@@ -246,10 +252,6 @@
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.2rem;
-            }
-
             .about {
                 flex-direction: column;
             }
@@ -260,8 +262,10 @@
 <body>
 
     <header>
-        <!-- <h1>Karimeen Kompany</h1>
-        <p>Where Flavour Meets the Backwaters</p> -->
+        <div>
+            <!-- <h1>Karimeen Kompany</h1>
+            <p>Where Flavour Meets the Backwaters</p> -->
+        </div>
     </header>
 
     <nav>
